@@ -20,14 +20,14 @@ const TURQ = "#16B5C0";
 const PLAYFAIR = "'Playfair Display', serif";
 
 const STEPS = [
-  { n: "01", img: "/images/aufbau/step-1.png", title: "Bodenplatte", text: "Am Anfang entsteht eine stabile Bodenplatte – das solide Fundament für Ihren Pool." },
+  { n: "01", img: "/images/kunde/img_13.jpg", title: "Bodenplatte", text: "Am Anfang entsteht eine stabile Bodenplatte – das solide Fundament für Ihren Pool." },
   { n: "02", img: "/images/aufbau/step-2.jpg", title: "Styroporsteine positionieren", text: "Nach dem Erstellen der Bodenplatte werden die Styroporsteine exakt positioniert." },
   { n: "03", img: "/images/aufbau/step-3.jpg", title: "Reihe für Reihe aufbauen", text: "Reihe für Reihe bis zu einer Höhe von max. 1,5 m. Mit Rundstahlstangen werden die Kammern vertikal und horizontal bewehrt." },
   { n: "04", img: "/images/aufbau/step-4.png", title: "Einbauteile setzen & befüllen", text: "Skimmer, Düsen, Scheinwerfer und weitere Einbauteile werden montiert – anschließend werden die Steine mit Beton befüllt." },
   { n: "05", img: "/images/aufbau/step-5.jpg", title: "Treppenbau", text: "Eine vernünftige und formschöne Treppe darf natürlich nicht fehlen." },
-  { n: "06", img: "/images/aufbau/step-6.jpg", title: "Verputzen & vorbereiten", text: "Das Becken wird verputzt, desinfiziert und mit einem Spezial-Vlies beklebt." },
+  { n: "06", img: "/images/kunde/img_23.jpg", title: "Verputzen & vorbereiten", text: "Das fertige Becken wird verputzt, geglättet und sorgfältig für die Folie vorbereitet." },
   { n: "07", img: "/images/aufbau/step-7.jpg", title: "Folie nach Wunsch", text: "Zum Schluss wird das Becken mit der Wunschfolie ausgekleidet und verschweißt – ganz nach Kundenwunsch." },
-  { n: "08", img: "/images/aufbau/step-8.jpeg", title: "Fertiges Becken", text: "Und schon ist das Becken fertig – jetzt kann die Gartengestaltung beginnen." },
+  { n: "08", img: "/images/kunde/img_04.jpg", title: "Fertiges Becken", text: "Und schon ist Ihr Traum-Pool fertig – bereit für viele sonnige Stunden im eigenen Garten." },
 ];
 
 function AufbauPage() {

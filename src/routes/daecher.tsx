@@ -35,13 +35,13 @@ const MODELLE = [
     name: "line PRESTIGE",
     label: "Flach & dezent",
     text: "Eine niedrige Schiebeüberdachung, die sich nahezu unsichtbar in Ihren Garten einfügt – und Ihren Pool zuverlässig schützt.",
-    img: "/images/daecher/dach-1.jpg",
+    img: "/images/daecher/prestige.jpg",
   },
   {
     name: "line LIVING",
     label: "Begehbar & geräumig",
     text: "Die geräumige, begehbare Variante – wird zum lichtdurchfluteten Wohlfühlraum am Pool und verlängert Ihre Badesaison spürbar.",
-    img: "/images/daecher/dach-2.jpg",
+    img: "/images/daecher/living.jpg",
   },
 ];
 
@@ -76,7 +76,7 @@ function DaecherPage() {
         title="Poolüberdachungen von Popp"
         subtitle="Premium-Überdachungen, die Ihre Badesaison verlängern – langlebig, elegant und exakt auf Ihren Pool abgestimmt."
         crumbs={[{ label: "Dächer" }]}
-        image="/images/Dächer Hero Section.png"
+        image="/images/kunde/img_20.jpg"
         ctaLabel="Jetzt beraten lassen"
         ctaTo="/kontakt"
       />

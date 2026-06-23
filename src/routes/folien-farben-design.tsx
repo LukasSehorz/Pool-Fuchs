@@ -26,7 +26,7 @@ function FolienPage() {
         title="Folien, Farben & Design"
         subtitle="Robuste Alkorplan-Folien – für ein langlebiges, stilvolles Poolerlebnis."
         crumbs={[{ label: "Folien Farben/Design" }]}
-        image="/images/Folien Design/Hero Section Folien & Design.png"
+        image="/images/kunde/img_17.jpg"
         ctaLabel="Jetzt Wunsch-Design auswählen"
         ctaTo="/kontakt"
       />

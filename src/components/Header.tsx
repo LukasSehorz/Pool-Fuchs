@@ -27,7 +27,7 @@ export function Header() {
     >
       <div className="container-page flex h-18 items-center justify-between py-3">
         <Link to="/" className="flex items-center">
-          <img src="/images/Logo.jpg" alt="FuchsPools" className="h-12 w-auto rounded-md" style={{ filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.25))" }} />
+          <img src="/images/logo-fuchspools.png" alt="FuchsPools" className="h-14 w-auto" style={{ filter: scrolled ? "none" : "drop-shadow(0 1px 4px rgba(0,0,0,0.45))" }} />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">

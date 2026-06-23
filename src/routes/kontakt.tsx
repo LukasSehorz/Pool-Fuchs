@@ -26,7 +26,7 @@ function KontaktPage() {
         title="Sprechen Sie mit unseren Pool-Profis"
         subtitle="Unverbindlich, kostenfrei und kompetent – wir freuen uns auf Sie."
         crumbs={[{ label: "Kontakt" }]}
-        image="/images/Kontakt Hero Section.png"
+        image="/images/kunde/img_24.jpg"
         ctaLabel="Jetzt Termin vereinbaren"
         ctaHref="#angebot"
       />

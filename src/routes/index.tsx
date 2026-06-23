@@ -6,22 +6,22 @@ import { TrustBar } from "@/components/TrustBar";
 import { useReveal } from "@/lib/useReveal";
 import leistungenBg from "@/assets/leistungen-bg.png";
 
-// Bilder von fuchspools.com (public/images/fuchs)
-const aboutPool = "/images/fuchs/image.jpeg";
-const ref9 = "/images/fuchs/45.jpg";
-const ref10 = "/images/fuchs/6-2.jpg";
-const ref11 = "/images/fuchs/5.jpg";
-const ref12 = "/images/fuchs/image.jpeg";
-const ref13 = "/images/fuchs/image2.jpeg";
-const ref14 = "/images/fuchs/FE592FEA-A015-45D7-9FAF-1B13C13E1C2C-002.jpg";
-const ref15 = "/images/fuchs/IMG_1267.jpg";
-const ref16 = "/images/fuchs/f9ca32df-39d1-4363-a935-a85accb0fb69.jpg";
-const ref17 = "/images/fuchs/B45E53E1-220B-4FA9-9C60-17C21E7F26F9.jpg";
-const bild19 = "/images/fuchs/landing-bottom.jpg";
-const highlight1 = "/images/fuchs/5.jpg";
-const highlight2 = "/images/fuchs/image2.jpeg";
-const highlight3 = "/images/fuchs/FE592FEA-A015-45D7-9FAF-1B13C13E1C2C-002.jpg";
-const highlight4 = "/images/fuchs/45.jpg";
+// Echte FuchsPools-Kundenfotos (public/images/kunde)
+const aboutPool = "/images/kunde/img_03.jpg"; // Pool mit Holzterrasse am Haus
+const ref9 = "/images/kunde/img_04.jpg";
+const ref10 = "/images/kunde/img_17.jpg";
+const ref11 = "/images/kunde/img_22.jpg";
+const ref12 = "/images/kunde/img_07.jpg";
+const ref13 = "/images/kunde/img_05.jpg";
+const ref14 = "/images/kunde/img_25.jpg";
+const ref15 = "/images/kunde/img_01.jpg";
+const ref16 = "/images/kunde/img_18.jpg";
+const ref17 = "/images/kunde/img_24.jpg";
+const bild19 = "/images/kunde/img_11.jpg"; // Pool mit Liegen, Querformat
+const highlight1 = "/images/kunde/img_24.jpg"; // Pools nach Maß
+const highlight2 = "/images/kunde/img_25.jpg"; // Folien & Design
+const highlight3 = "/images/kunde/img_20.jpg"; // Pool-Überdachungen
+const highlight4 = "/images/kunde/img_09.jpg"; // Aufbau & Montage
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -73,7 +73,7 @@ function HomePage() {
       {/* HERO */}
       <section className="relative isolate overflow-hidden -mt-18 min-h-screen flex items-center justify-center">
         <div className="absolute inset-0 -z-10">
-          <img src="/images/Hero Section Hintergrund.png" alt="" width={1920} height={1080} className="size-full object-cover" />
+          <img src="/images/kunde/img_18.jpg" alt="" width={1920} height={1080} className="size-full object-cover" />
           <div className="absolute inset-0 bg-black/55" />
         </div>
         <div data-hero className="flex flex-col items-center text-center px-6 pt-48 pb-24 text-white">

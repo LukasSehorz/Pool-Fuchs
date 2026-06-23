@@ -10,9 +10,9 @@ export function Footer() {
           <div className="lg:col-span-1 space-y-5">
             <Link to="/">
               <img
-                src="/images/Logo.jpg"
+                src="/images/logo-fuchspools.png"
                 alt="FuchsPools"
-                className="h-16 w-auto rounded-md"
+                className="h-16 w-auto"
               />
             </Link>
             <p className="text-sm text-primary-foreground/75 leading-relaxed">
