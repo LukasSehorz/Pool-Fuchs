@@ -73,7 +73,7 @@ function HomePage() {
       {/* HERO */}
       <section className="relative isolate overflow-hidden -mt-18 min-h-screen flex items-center justify-center">
         <div className="absolute inset-0 -z-10">
-          <img src="/images/kunde/img_18.jpg" alt="" width={1920} height={1080} className="size-full object-cover" />
+          <img src="/images/kunde/img_18.jpg" alt="" width={2560} height={1920} className="size-full object-cover" />
           <div className="absolute inset-0 bg-black/55" />
         </div>
         <div data-hero className="flex flex-col items-center text-center px-6 pt-48 pb-24 text-white">
