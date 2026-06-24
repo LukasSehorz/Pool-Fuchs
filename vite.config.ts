@@ -12,4 +12,8 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // Ziel-Plattform für den Deploy. Innerhalb von Lovable wird dies ignoriert
+  // (dort bleibt Cloudflare erzwungen); auf externer CI (Netlify) pinnt es den
+  // Netlify-Preset -> erzeugt .netlify/ (Functions + statische Assets).
+  nitro: { preset: "netlify" },
 });

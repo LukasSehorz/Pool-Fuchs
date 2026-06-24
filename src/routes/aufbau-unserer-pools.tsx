@@ -141,8 +141,11 @@ function AufbauPage() {
 
         {/* Infografik */}
         <div className="container-page mt-12 mat-reveal">
-          <div className="rounded-2xl border border-border bg-white p-4 md:p-8 shadow-card">
-            <img src="/images/aufbau/produkt-2.png" alt="Styroporstein Infografik – technische Details" className="w-full h-auto object-contain max-h-[520px] mx-auto" />
+          <div className="rounded-2xl border border-border bg-white p-2 sm:p-4 md:p-8 shadow-card">
+            <div className="overflow-x-auto md:overflow-visible">
+              <img src="/images/aufbau/produkt-2.png" alt="Styroporstein Infografik – technische Details" className="h-auto object-contain min-w-[680px] md:min-w-0 w-full max-h-none md:max-h-[520px] mx-auto" />
+            </div>
+            <p className="md:hidden mt-3 text-center text-xs text-muted-foreground">‹ Zum Vergrößern seitlich wischen ›</p>
           </div>
         </div>
       </section>

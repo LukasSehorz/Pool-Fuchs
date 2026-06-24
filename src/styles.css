@@ -138,6 +138,16 @@
     letter-spacing: -0.02em;
     font-weight: 700;
   }
+
+  /* Mobile-Backstop: kein horizontaler Overflow auf Phones/Tablets.
+     overflow-x: clip statt hidden -> bricht position: sticky (Header) nicht.
+     Nur < lg (1024px), damit die fertige Desktop-Ansicht unverändert bleibt. */
+  @media (max-width: 1023px) {
+    html, body {
+      overflow-x: clip;
+      max-width: 100%;
+    }
+  }
 }
 
 @utility container-page {

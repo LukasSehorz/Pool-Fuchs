@@ -17,6 +17,13 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   const textColor = scrolled ? "#1a1a1a" : "#ffffff";
   const textShadow = scrolled ? "none" : "0 2px 8px rgba(0,0,0,0.7),0 1px 3px rgba(0,0,0,0.5)";
 
@@ -68,8 +75,21 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="lg:hidden border-t border-border/40 bg-white max-h-[80vh] overflow-y-auto">
-          <div className="container-page py-4 space-y-1">
+        <div className="lg:hidden fixed inset-0 z-[60] h-[100dvh] bg-white flex flex-col">
+          <div className="flex h-18 items-center justify-between border-b border-border/60 container-page py-3">
+            <Link to="/" onClick={() => setOpen(false)} className="flex items-center">
+              <img src="/images/logo-fuchspools.png" alt="FuchsPools" className="h-14 w-auto" />
+            </Link>
+            <button
+              className="p-2 -mr-2"
+              style={{ color: ORANGE }}
+              onClick={() => setOpen(false)}
+              aria-label="Menü schließen"
+            >
+              <X />
+            </button>
+          </div>
+          <div className="flex-1 overflow-y-auto container-page py-4 space-y-1">
             {NAV.map((item) => (
               <div key={item.to} className="border-b border-border/60 pb-1">
                 <button

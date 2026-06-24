@@ -28,11 +28,11 @@ export function TrustBar() {
 
   return (
     <div ref={ref} className="relative z-10 -mt-16 px-6">
-      <div className="trust-card max-w-3xl mx-auto bg-white rounded-2xl shadow-elegant grid grid-cols-3 divide-x divide-border">
+      <div className="trust-card max-w-3xl mx-auto bg-white rounded-2xl shadow-elegant grid grid-cols-1 divide-y sm:grid-cols-3 sm:divide-x sm:divide-y-0 divide-border">
         {stats.map((s) => (
-          <div key={s.label} className="trust-stat flex flex-col items-center justify-center py-8 px-4 text-center">
+          <div key={s.label} className="trust-stat flex flex-col items-center justify-center py-6 px-4 text-center sm:py-8">
             <span
-              className="text-4xl md:text-5xl font-bold"
+              className="text-3xl md:text-4xl lg:text-5xl font-bold whitespace-nowrap"
               style={{ color: "#F15A22", fontFamily: "'Playfair Display', serif" }}
             >
               {s.value}

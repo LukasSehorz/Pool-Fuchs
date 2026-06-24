@@ -140,7 +140,7 @@ function HomePage() {
         {/* Bild rechts */}
         <div data-reveal="right" className="relative min-h-[520px]" style={{ backgroundColor: "#16B5C0" }}>
           <div className="absolute inset-8 border border-white/50 pointer-events-none z-10" />
-          <div className="absolute top-10 -left-10 right-10 bottom-10 shadow-2xl overflow-hidden">
+          <div className="absolute inset-x-4 top-10 bottom-10 lg:inset-x-auto lg:-left-10 lg:right-10 shadow-2xl overflow-hidden">
             <img src={aboutPool} alt="FuchsPools Pool" className="w-full h-full object-cover" />
           </div>
         </div>
@@ -190,43 +190,43 @@ function HomePage() {
             Premiumprodukte, die Sie sofort begeistern
           </h2>
         </div>
-        <div data-reveal-group className="grid grid-cols-2 lg:grid-cols-4 gap-y-8" style={{ backgroundColor: "#f5f5f3" }}>
+        <div data-reveal-group className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-8" style={{ backgroundColor: "#f5f5f3" }}>
           {/* Zeile 1 */}
-          <div data-reveal-item className="bg-[#f5f5f3] flex flex-col items-center justify-center px-8 py-16 min-h-[480px]">
+          <div data-reveal-item className="bg-[#f5f5f3] flex flex-col items-center justify-center px-8 py-16 min-h-[300px] sm:min-h-[480px]">
             <Waves className="size-16 mb-6" strokeWidth={1} style={{ color: "#16B5C0" }} />
             <h3 className="text-xl font-bold text-center mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>Pools nach Maß</h3>
             <p className="text-sm text-muted-foreground text-center leading-relaxed">Jeder Pool wird individuell geplant und gebaut – Form, Größe und Tiefe ganz nach Ihren Wünschen.</p>
             <Link to="/poolabdeckungen" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">Mehr erfahren <ArrowRight className="size-3.5" /></Link>
           </div>
-          <div data-reveal-item className="min-h-[480px] overflow-hidden">
+          <div data-reveal-item className="min-h-[240px] sm:min-h-[480px] overflow-hidden">
             <img src={highlight1} alt="" className="w-full h-full object-cover" />
           </div>
-          <div data-reveal-item className="bg-[#f5f5f3] flex flex-col items-center justify-center px-8 py-16 min-h-[480px]">
+          <div data-reveal-item className="bg-[#f5f5f3] flex flex-col items-center justify-center px-8 py-16 min-h-[300px] sm:min-h-[480px]">
             <Palette className="size-16 mb-6" strokeWidth={1} style={{ color: "#16B5C0" }} />
             <h3 className="text-xl font-bold text-center mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>Folien & Design</h3>
             <p className="text-sm text-muted-foreground text-center leading-relaxed">Hochwertige Alkorplan-Folien in vielen Farben und Oberflächen – für genau Ihren Wunsch-Look.</p>
             <Link to="/folien-farben-design" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">Mehr erfahren <ArrowRight className="size-3.5" /></Link>
           </div>
-          <div data-reveal-item className="min-h-[480px] overflow-hidden">
+          <div data-reveal-item className="min-h-[240px] sm:min-h-[480px] overflow-hidden">
             <img src={highlight2} alt="" className="w-full h-full object-cover" />
           </div>
           {/* Zeile 2 */}
-          <div data-reveal-item className="bg-[#f5f5f3] flex flex-col items-center justify-center px-8 py-16 min-h-[480px]">
+          <div data-reveal-item className="bg-[#f5f5f3] flex flex-col items-center justify-center px-8 py-16 min-h-[300px] sm:min-h-[480px]">
             <Layers className="size-16 mb-6" strokeWidth={1} style={{ color: "#16B5C0" }} />
             <h3 className="text-xl font-bold text-center mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>Pool-Überdachungen</h3>
             <p className="text-sm text-muted-foreground text-center leading-relaxed">Schützen Sie Ihren Pool und verlängern Sie die Badesaison mit einer passenden Überdachung.</p>
             <Link to="/daecher" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">Mehr erfahren <ArrowRight className="size-3.5" /></Link>
           </div>
-          <div data-reveal-item className="min-h-[480px] overflow-hidden">
+          <div data-reveal-item className="min-h-[240px] sm:min-h-[480px] overflow-hidden">
             <img src={highlight3} alt="" className="w-full h-full object-cover" />
           </div>
-          <div data-reveal-item className="bg-[#f5f5f3] flex flex-col items-center justify-center px-8 py-16 min-h-[480px]">
+          <div data-reveal-item className="bg-[#f5f5f3] flex flex-col items-center justify-center px-8 py-16 min-h-[300px] sm:min-h-[480px]">
             <Wrench className="size-16 mb-6" strokeWidth={1} style={{ color: "#16B5C0" }} />
             <h3 className="text-xl font-bold text-center mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>Aufbau & Montage</h3>
             <p className="text-sm text-muted-foreground text-center leading-relaxed">Vom Aushub über den Beckenbau bis zur Technik – alles fachgerecht aus einer Hand.</p>
             <Link to="/aufbau-unserer-pools" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">Mehr erfahren <ArrowRight className="size-3.5" /></Link>
           </div>
-          <div data-reveal-item className="min-h-[480px] overflow-hidden">
+          <div data-reveal-item className="min-h-[240px] sm:min-h-[480px] overflow-hidden">
             <img src={highlight4} alt="" className="w-full h-full object-cover" />
           </div>
         </div>
@@ -243,10 +243,10 @@ function HomePage() {
         {/* Inhalt */}
         <div className="relative">
           {/* Heading-Bereich: "Referenzen" links, beige rechts sichtbar */}
-          <div className="px-16 py-24">
+          <div className="px-6 sm:px-16 py-16 sm:py-24">
             <h2
               data-reveal
-              className="text-5xl font-bold text-foreground"
+              className="text-4xl sm:text-5xl font-bold text-foreground"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
               Referenzen
@@ -254,7 +254,7 @@ function HomePage() {
           </div>
 
           {/* Bild-Grid – spannt über weiße UND beige Seite */}
-          <div data-reveal-group className="grid grid-cols-3 gap-3 px-28 pb-16">
+          <div data-reveal-group className="grid grid-cols-2 sm:grid-cols-3 gap-3 px-6 sm:px-12 lg:px-28 pb-16">
             {[ref9, ref10, ref11, ref12, ref13, ref14, ref15, ref16, ref17].map((src, i) => (
               <div key={i} data-reveal-item className="aspect-[4/3] overflow-hidden group">
                 <img src={src} alt="" loading="lazy" className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" />
@@ -265,7 +265,7 @@ function HomePage() {
       </section>
 
       {/* REZENSIONEN */}
-      <section className="relative overflow-hidden bg-white py-24 px-8">
+      <section className="relative overflow-hidden bg-white py-24 px-4 sm:px-8">
         {/* Wassertropfen-Textur */}
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
           <img src={leistungenBg} alt="" className="w-full h-full object-cover opacity-15" />
@@ -281,7 +281,7 @@ function HomePage() {
           </h2>
 
           {/* Zitat-Box mit feiner brauner Umrandung */}
-          <div data-reveal data-reveal-delay="0.1" className="px-14 py-12" style={{ border: "1px solid #16B5C0" }}>
+          <div data-reveal data-reveal-delay="0.1" className="px-6 py-10 sm:px-14 sm:py-12" style={{ border: "1px solid #16B5C0" }}>
             <div className="min-h-[140px] flex flex-col justify-center">
               <p
                 className="text-xl leading-relaxed text-foreground/80 italic"

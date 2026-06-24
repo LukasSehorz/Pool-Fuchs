@@ -86,10 +86,10 @@ function KontaktPage() {
             </ul>
           </div>
 
-          <div data-reveal-item className="rounded-3xl overflow-hidden border border-border aspect-[4/3]">
+          <div data-reveal-item className="rounded-3xl overflow-hidden border border-border aspect-[4/3] w-full max-w-full">
             <iframe
               title="Karte"
-              className="size-full"
+              className="size-full max-w-full block"
               loading="lazy"
               src={`https://www.openstreetmap.org/export/embed.html?bbox=12.59%2C48.54%2C12.67%2C48.59&layer=mapnik&marker=48.5662%2C12.6293`}
             />

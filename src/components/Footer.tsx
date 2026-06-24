@@ -5,7 +5,7 @@ import { COMPANY, NAV } from "@/lib/site";
 export function Footer() {
   return (
     <footer className="mt-24 gradient-deep text-primary-foreground">
-      <div className="container-page py-16">
+      <div className="container-page pt-16 pb-[calc(6rem+env(safe-area-inset-bottom))] lg:pb-16">
         <div className="grid gap-12 lg:grid-cols-4">
           <div className="lg:col-span-1 space-y-5">
             <Link to="/">

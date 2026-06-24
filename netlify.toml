@@ -1,0 +1,12 @@
+# Netlify-Deploy für die TanStack-Start-App (SSR via Nitro "netlify"-Preset).
+# Der Build erzeugt:
+#   - dist/                         -> statische Assets (publish)
+#   - .netlify/functions-internal/  -> SSR-Function (von Netlify automatisch deployt)
+# Das Routing steckt als In-Source-Config (config.path = "/*", preferStatic)
+# direkt in der Function – daher ist keine [[redirects]]-Regel nötig.
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
