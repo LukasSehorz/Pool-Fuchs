@@ -27,7 +27,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "FuchsPools – Traum-Pools nach Maß aus Niederbayern" },
-      { name: "description", content: "FuchsPools UG aus Reisbach plant, baut und montiert premium Pools ganz nach Ihren Wünschen – Ihr Poolbauer in Niederbayern." },
+      { name: "description", content: "FuchsPools GmbH aus Reisbach plant, baut und montiert premium Pools ganz nach Ihren Wünschen – Ihr Poolbauer in Niederbayern." },
     ],
   }),
   component: HomePage,

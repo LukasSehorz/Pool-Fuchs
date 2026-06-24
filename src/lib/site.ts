@@ -2,10 +2,10 @@ export type NavChild = { label: string; to: string; children?: NavChild[] };
 
 export const COMPANY = {
   name: "FuchsPools",
-  full: "FuchsPools UG",
-  street: "Krankenhausstraße 31",
+  full: "FuchsPools GmbH",
+  street: "Krankenhausstraße 33",
   zip: "94419",
-  city: "Reisbach",
+  city: "Reisbach-Niederreisbach",
   region: "Niederbayern",
   phone: "0170 1149416",
   phoneHref: "tel:+491701149416",
