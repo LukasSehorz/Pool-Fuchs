@@ -17,6 +17,7 @@ export const Route = createFileRoute("/kontakt")({
 
 function KontaktPage() {
   const [sent, setSent] = useState(false);
+  const [mapConsent, setMapConsent] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   useReveal(rootRef);
   return (
@@ -86,14 +87,29 @@ function KontaktPage() {
             </ul>
           </div>
 
-          <div data-reveal-item className="rounded-3xl overflow-hidden border border-border aspect-[4/3] w-full max-w-full">
-            <iframe
-              title="Karte"
-              className="size-full max-w-full block"
-              loading="lazy"
-              src={`https://www.openstreetmap.org/export/embed.html?bbox=12.59%2C48.54%2C12.67%2C48.59&layer=mapnik&marker=48.5662%2C12.6293`}
-            />
-          </div>
+          {mapConsent ? (
+            <div data-reveal-item className="rounded-3xl overflow-hidden border border-border aspect-[4/3] w-full max-w-full">
+              <iframe
+                title="Karte"
+                className="size-full max-w-full block"
+                loading="lazy"
+                src={`https://www.openstreetmap.org/export/embed.html?bbox=12.59%2C48.54%2C12.67%2C48.59&layer=mapnik&marker=48.5662%2C12.6293`}
+              />
+            </div>
+          ) : (
+            <div data-reveal-item className="rounded-3xl overflow-hidden border border-border aspect-[4/3] w-full max-w-full bg-muted flex flex-col items-center justify-center gap-4 p-8 text-center">
+              <p className="text-sm text-muted-foreground max-w-xs">
+                Standort-Karte (OpenStreetMap). Beim Laden werden Daten an OpenStreetMap übertragen.
+              </p>
+              <button
+                type="button"
+                onClick={() => setMapConsent(true)}
+                className="rounded-full gradient-water text-primary-foreground px-6 py-3 font-semibold shadow-card hover:opacity-95 transition"
+              >
+                Karte laden
+              </button>
+            </div>
+          )}
         </aside>
       </section>
     </div>

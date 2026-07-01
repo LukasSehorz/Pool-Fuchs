@@ -12,6 +12,8 @@ export const COMPANY = {
   email: "info@fuchspools.de",
   owner: "Oliver Fuchs",
   vatId: "DE343137726",
+  registerCourt: "Amtsgericht Landshut",
+  registerNumber: "HRB 12625",
   youtube: "https://www.youtube.com/",
   hours: [
     { d: "Mo – Fr", h: "Nach Vereinbarung" },

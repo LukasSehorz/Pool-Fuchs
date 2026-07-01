@@ -88,9 +88,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" },
     ],
   }),
   shellComponent: RootShell,
@@ -101,7 +98,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="de">
       <head>
         <HeadContent />
       </head>
@@ -139,7 +136,7 @@ function RootComponent() {
       <ScrollToTop />
       <div className="flex min-h-screen flex-col">
         <Header />
-        <main className="flex-1">
+        <main className="flex-1 pb-24 lg:pb-0">
           <Outlet />
         </main>
         <Footer />

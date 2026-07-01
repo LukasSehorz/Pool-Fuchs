@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useRef, useState } from "react";
-import { Layers, Waves, ArrowRight, Palette, Wrench, Blocks, Settings, Sparkles, PencilRuler } from "lucide-react";
+import { Layers, Waves, ArrowRight, Palette, Wrench, Blocks, Settings, Sparkles, PencilRuler, Check } from "lucide-react";
 import { CTASection } from "@/components/CTASection";
 import { TrustBar } from "@/components/TrustBar";
 import { useReveal } from "@/lib/useReveal";
@@ -33,20 +33,21 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
-// PLATZHALTER – bitte durch echte FuchsPools-Kundenbewertungen ersetzen.
+// Unser Leistungsversprechen – eigene Aussagen von FuchsPools, KEINE Kundenbewertungen.
+// (Echte, verifizierbare Kundenbewertungen können hier später ergänzt werden.)
 const REVIEWS = [
   {
-    text: "Von der ersten Beratung bis zur Fertigstellung lief alles professionell und zuverlässig. Unser Pool ist genau so geworden, wie wir ihn uns vorgestellt haben.",
+    text: "Jeder Pool entsteht individuell nach Ihren Wünschen – von der ersten Beratung über die Planung bis zur fachgerechten Montage, alles aus einer Hand.",
     name: "",
     source: "",
   },
   {
-    text: "Top Qualität, faire Beratung und saubere Montage – wir können FuchsPools uneingeschränkt weiterempfehlen.",
+    text: "Wir setzen auf hochwertige Materialien und saubere Verarbeitung – für einen Pool, an dem Sie viele Jahre Freude haben.",
     name: "",
     source: "",
   },
   {
-    text: "Individuelle Planung ganz nach unseren Wünschen. Das Ergebnis kann sich sehen lassen.",
+    text: "Als Ihr persönlicher Ansprechpartner aus Niederbayern begleiten wir Sie zuverlässig durch Ihr gesamtes Pool-Projekt.",
     name: "",
     source: "",
   },
@@ -76,7 +77,7 @@ function HomePage() {
           <img src="/images/kunde/img_18.jpg" alt="" width={2560} height={1920} className="size-full object-cover" />
           <div className="absolute inset-0 bg-black/55" />
         </div>
-        <div data-hero className="flex flex-col items-center text-center px-6 pt-48 pb-24 text-white">
+        <div data-hero className="flex flex-col items-center text-center px-6 pt-36 sm:pt-48 pb-24 text-white">
           <h1
             data-hero-item
             className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-wide"
@@ -232,6 +233,60 @@ function HomePage() {
         </div>
       </section>
 
+      {/* GFK-SANIERUNG */}
+      <section className="bg-white py-20 md:py-28 overflow-hidden">
+        <div className="container-page grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          {/* Bild-Collage */}
+          <div data-reveal="left" className="grid grid-cols-2 gap-3 md:gap-4">
+            {["/images/gfk/gfk-2.jpg", "/images/gfk/gfk-4.jpg", "/images/gfk/gfk-1.jpg", "/images/gfk/gfk-3.jpg"].map((src, i) => (
+              <div key={src} className={`overflow-hidden rounded-2xl shadow-card ${i % 2 === 1 ? "sm:mt-6" : ""}`}>
+                <img src={src} alt="GFK-Becken-Sanierung bei FuchsPools" loading="lazy" className="aspect-[3/4] w-full object-cover" />
+              </div>
+            ))}
+          </div>
+
+          {/* Text */}
+          <div data-reveal="right">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-widest" style={{ color: "#16B5C0" }}>
+              Sanierung
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold leading-tight text-foreground" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Sanierung von GFK-Becken
+            </h2>
+            <p className="mt-6 text-base leading-relaxed text-muted-foreground">
+              Ihr GFK-Pool ist in die Jahre gekommen oder durch <span className="font-semibold text-foreground">Osmose</span> beschädigt?
+              Wir bringen Ihr Becken wieder auf Hochglanz. In unserer Werkstatt sanieren wir GFK-Becken fachgerecht –
+              von der Schadensanalyse über die Reparatur der Laminatschichten bis hin zur neuen, hochwertigen Oberfläche
+              ganz nach Ihren Wünschen.
+            </p>
+
+            <ul className="mt-8 space-y-3">
+              {[
+                "Beseitigung von Osmose- und Feuchtigkeitsschäden",
+                "Reparatur von Rissen im Gelcoat und Laminat",
+                "Erneuerung der Oberfläche – auf Wunsch in edler Steinoptik",
+                "Treppen und Einbauteile werden fachgerecht mitsaniert",
+              ].map((f) => (
+                <li key={f} className="flex items-start gap-3">
+                  <span className="mt-0.5 grid place-items-center size-5 shrink-0 rounded-full" style={{ backgroundColor: "#16B5C0" }}>
+                    <Check className="size-3 text-white" />
+                  </span>
+                  <span className="text-sm font-medium text-foreground">{f}</span>
+                </li>
+              ))}
+            </ul>
+
+            <Link
+              to="/kontakt"
+              className="mt-9 inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold text-white transition hover:opacity-90"
+              style={{ backgroundColor: "#F15A22" }}
+            >
+              Sanierung anfragen <ArrowRight className="size-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* REFERENZEN */}
       <section className="relative overflow-hidden">
         {/* Split-Hintergrund über die gesamte Sektionshöhe */}
@@ -274,10 +329,10 @@ function HomePage() {
         <div className="relative max-w-4xl mx-auto text-center">
           <h2
             data-reveal
-            className="text-5xl font-bold text-foreground mb-14"
+            className="text-4xl sm:text-5xl font-bold text-foreground mb-10 sm:mb-14"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
-            Rezensionen
+            Unser Versprechen
           </h2>
 
           {/* Zitat-Box mit feiner brauner Umrandung */}
@@ -332,7 +387,7 @@ function HomePage() {
         </div>
 
         {/* Text rechts */}
-        <div data-reveal="right" className="flex flex-col justify-center px-14 lg:px-20 py-20 bg-white">
+        <div data-reveal="right" className="flex flex-col justify-center px-6 sm:px-14 lg:px-20 py-16 lg:py-20 bg-white">
           <h2
             className="text-4xl font-bold text-foreground mb-8"
             style={{ fontFamily: "'Playfair Display', serif" }}
@@ -351,7 +406,7 @@ function HomePage() {
           </div>
 
           {/* 2-spaltige Liste – klickbar */}
-          <div className="grid grid-cols-2 gap-x-6 gap-y-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
             {LEISTUNGEN.map((item) => (
               <Link key={item.title} to={item.to} className="flex items-center gap-3 group">
                 <div className="size-3 shrink-0 transition group-hover:opacity-70" style={{ backgroundColor: "#16B5C0" }} />

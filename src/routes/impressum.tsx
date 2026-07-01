@@ -9,12 +9,16 @@ export const Route = createFileRoute("/impressum")({
       <PageHero title="Impressum" crumbs={[{ label: "Impressum" }]} />
       <section className="container-page py-16 max-w-3xl text-foreground/85 leading-relaxed space-y-6">
         <div>
-          <h2 className="text-xl font-bold">Angaben gemäß § 5 TMG</h2>
+          <h2 className="text-xl font-bold">Angaben gemäß § 5 DDG (Digitale-Dienste-Gesetz)</h2>
           <p className="mt-2">{COMPANY.full}<br />{COMPANY.street}<br />{COMPANY.zip} {COMPANY.city}<br />Deutschland</p>
         </div>
         <div>
           <h2 className="text-xl font-bold">Vertreten durch</h2>
           <p className="mt-2">Geschäftsführer: {COMPANY.owner}<br />Berufsbezeichnung: Poolbauer (Deutschland)</p>
+        </div>
+        <div>
+          <h2 className="text-xl font-bold">Registereintrag</h2>
+          <p className="mt-2">Eintragung im Handelsregister.<br />Registergericht: {COMPANY.registerCourt}<br />Registernummer: {COMPANY.registerNumber}</p>
         </div>
         <div>
           <h2 className="text-xl font-bold">Kontakt</h2>
