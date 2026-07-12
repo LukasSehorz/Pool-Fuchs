@@ -12,11 +12,11 @@ type Design = { name: string; tagline: string; img: string };
 
 // RENOLIT ALKORPLAN TOUCH – Premium-Designkollektion
 const DESIGNS: Design[] = [
-  { name: "Authentic", tagline: "Authentische Steinstruktur", img: "/images/Folien Design/Authentic Design.png" },
-  { name: "Elegance", tagline: "Edle Schiefer-Optik", img: "/images/Folien Design/Elegance Design.png" },
-  { name: "Prestige", tagline: "Naturstein in Grau", img: "/images/Folien Design/Prestige Design.png" },
-  { name: "Sublime", tagline: "Warmer Naturstein-Look", img: "/images/Folien Design/Sublime Design.png" },
-  { name: "Vanity", tagline: "Helle Marmor-Optik", img: "/images/Folien Design/Vanity Design.png" },
+  { name: "Authentic", tagline: "Authentische Steinstruktur", img: "/images/Folien Design/Authentic Design.webp" },
+  { name: "Elegance", tagline: "Edle Schiefer-Optik", img: "/images/Folien Design/Elegance Design.webp" },
+  { name: "Prestige", tagline: "Naturstein in Grau", img: "/images/Folien Design/Prestige Design.webp" },
+  { name: "Sublime", tagline: "Warmer Naturstein-Look", img: "/images/Folien Design/Sublime Design.webp" },
+  { name: "Vanity", tagline: "Helle Marmor-Optik", img: "/images/Folien Design/Vanity Design.webp" },
 ];
 
 // Zickzack-Versatz (nur einreihig ab lg): Welle nach oben/unten

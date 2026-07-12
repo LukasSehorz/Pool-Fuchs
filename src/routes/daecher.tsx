@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { PageHero } from "@/components/PageHero";
 import { CTASection } from "@/components/CTASection";
+import { SITE_URL } from "@/lib/site";
 
 const TURQ = "#16B5C0";
 const ORANGE = "#F15A22";
@@ -13,12 +14,18 @@ const PLAYFAIR = "'Playfair Display', serif";
 export const Route = createFileRoute("/daecher")({
   head: () => ({
     meta: [
-      { title: "Pooldächer von Popp – FuchsPools" },
+      { title: "Poolüberdachungen & Pooldächer in Niederbayern | Fuchs Pools" },
       {
         name: "description",
         content:
-          "Premium-Poolüberdachungen von Popp – langlebig, elegant und exakt auf Ihren Pool abgestimmt. Modelle line PRESTIGE & line LIVING bei FuchsPools.",
+          "Premium-Poolüberdachungen von Popp – langlebig, elegant und exakt auf Ihren Pool abgestimmt. Modelle line PRESTIGE & line LIVING bei Fuchs Pools aus Reisbach für Dingolfing, Landau & Niederbayern.",
       },
+      { property: "og:title", content: "Poolüberdachungen & Pooldächer in Niederbayern | Fuchs Pools" },
+      { property: "og:description", content: "Premium-Poolüberdachungen von Popp – langlebig, elegant und exakt auf Ihren Pool abgestimmt. Fuchs Pools aus Reisbach in Niederbayern." },
+      { property: "og:url", content: SITE_URL + "/daecher" },
+    ],
+    links: [
+      { rel: "canonical", href: SITE_URL + "/daecher" },
     ],
   }),
   component: DaecherPage,

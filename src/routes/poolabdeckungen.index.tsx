@@ -2,12 +2,19 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useRef } from "react";
 import { CTASection } from "@/components/CTASection";
 import { useReveal } from "@/lib/useReveal";
+import { SITE_URL } from "@/lib/site";
 
 export const Route = createFileRoute("/poolabdeckungen/")({
   head: () => ({
     meta: [
-      { title: "Unsere Pools – FuchsPools" },
-      { name: "description", content: "Realisierte Pool-Projekte von FuchsPools aus Niederbayern – individuell geplant und gebaut, mit hochwertigen Alkorplan-Folien." },
+      { title: "Unsere Pools – realisierte Pool-Projekte in Niederbayern | Fuchs Pools" },
+      { name: "description", content: "Realisierte Pool-Projekte von Fuchs Pools aus Reisbach – individuell geplant und gebaut mit hochwertigen Alkorplan-Folien. Ihr Poolbauer für Dingolfing, Landau & Niederbayern." },
+      { property: "og:title", content: "Unsere Pools – realisierte Pool-Projekte in Niederbayern | Fuchs Pools" },
+      { property: "og:description", content: "Realisierte Pool-Projekte von Fuchs Pools – individuell geplant und gebaut mit hochwertigen Alkorplan-Folien. Ihr Poolbauer aus Reisbach in Niederbayern." },
+      { property: "og:url", content: SITE_URL + "/poolabdeckungen" },
+    ],
+    links: [
+      { rel: "canonical", href: SITE_URL + "/poolabdeckungen" },
     ],
   }),
   component: UnserePoolsPage,
@@ -58,7 +65,7 @@ function UnserePoolsPage() {
           Ihr Traum-Pool, ganz nach Ihren Vorstellungen
         </h2>
         <p data-reveal data-reveal-delay="0.12" className="text-base text-muted-foreground leading-relaxed">
-          Von der Größe über die Form bis zur Folienfarbe – bei FuchsPools entsteht jeder Pool individuell.
+          Von der Größe über die Form bis zur Folienfarbe – bei Fuchs Pools entsteht jeder Pool individuell.
           Werfen Sie einen Blick auf einige unserer realisierten Projekte und lassen Sie sich inspirieren.
         </p>
       </section>

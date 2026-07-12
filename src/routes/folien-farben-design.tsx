@@ -3,16 +3,23 @@ import { PageHero } from "@/components/PageHero";
 import { FolienFaecher } from "@/components/FolienFaecher";
 import { FolienDesigns } from "@/components/FolienDesigns";
 import { CTASection } from "@/components/CTASection";
+import { SITE_URL } from "@/lib/site";
 
 export const Route = createFileRoute("/folien-farben-design")({
   head: () => ({
     meta: [
-      { title: "Folien Farben/Design – FuchsPools" },
+      { title: "Poolfolien & Design (Alkorplan) in Niederbayern | Fuchs Pools" },
       {
         name: "description",
         content:
-          "Hochwertige Alkorplan 2000 Poolfolien – glasfaserverstärkt, robust und in vielen Farben & Oberflächen. Finden Sie Ihre Wunschfolie bei FuchsPools.",
+          "Hochwertige Alkorplan-Poolfolien – glasfaserverstärkt, robust und in vielen Farben & Oberflächen. Ihre Wunschfolie bei Fuchs Pools aus Reisbach für Dingolfing, Landau & Niederbayern.",
       },
+      { property: "og:title", content: "Poolfolien & Design (Alkorplan) in Niederbayern | Fuchs Pools" },
+      { property: "og:description", content: "Hochwertige Alkorplan-Poolfolien in vielen Farben & Oberflächen – individuell für Ihren Pool. Fuchs Pools aus Reisbach in Niederbayern." },
+      { property: "og:url", content: SITE_URL + "/folien-farben-design" },
+    ],
+    links: [
+      { rel: "canonical", href: SITE_URL + "/folien-farben-design" },
     ],
   }),
   component: FolienPage,

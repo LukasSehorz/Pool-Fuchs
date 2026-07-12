@@ -4,12 +4,19 @@ import { Check } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { CTASection } from "@/components/CTASection";
+import { SITE_URL } from "@/lib/site";
 
 export const Route = createFileRoute("/aufbau-unserer-pools")({
   head: () => ({
     meta: [
-      { title: "Aufbau unserer Pools – FuchsPools" },
-      { name: "description", content: "So entsteht Ihr Traum-Pool bei FuchsPools – von der Bodenplatte über robuste Styroporsteine bis zum fertigen, folierten Becken. Schritt für Schritt erklärt." },
+      { title: "Poolbau Schritt für Schritt – Poolbauer Niederbayern | Fuchs Pools" },
+      { name: "description", content: "Poolbau Schritt für Schritt: von der Bodenplatte über robuste Styroporsteine bis zum folierten Becken. Ihr Poolbauer aus Reisbach für Dingolfing, Landau & Niederbayern." },
+      { property: "og:title", content: "Poolbau Schritt für Schritt – Poolbauer Niederbayern | Fuchs Pools" },
+      { property: "og:description", content: "So entsteht Ihr Traum-Pool bei Fuchs Pools – von der Bodenplatte bis zum fertigen Becken. Ihr Poolbauer aus Reisbach in Niederbayern." },
+      { property: "og:url", content: SITE_URL + "/aufbau-unserer-pools" },
+    ],
+    links: [
+      { rel: "canonical", href: SITE_URL + "/aufbau-unserer-pools" },
     ],
   }),
   component: AufbauPage,
@@ -23,7 +30,7 @@ const STEPS = [
   { n: "01", img: "/images/kunde/img_13.jpg", title: "Bodenplatte", text: "Am Anfang entsteht eine stabile Bodenplatte – das solide Fundament für Ihren Pool." },
   { n: "02", img: "/images/aufbau/step-2.jpg", title: "Styroporsteine positionieren", text: "Nach dem Erstellen der Bodenplatte werden die Styroporsteine exakt positioniert." },
   { n: "03", img: "/images/aufbau/step-3.jpg", title: "Reihe für Reihe aufbauen", text: "Reihe für Reihe bis zu einer Höhe von max. 1,5 m. Mit Rundstahlstangen werden die Kammern vertikal und horizontal bewehrt." },
-  { n: "04", img: "/images/aufbau/step-4.png", title: "Einbauteile setzen & befüllen", text: "Skimmer, Düsen, Scheinwerfer und weitere Einbauteile werden montiert – anschließend werden die Steine mit Beton befüllt." },
+  { n: "04", img: "/images/aufbau/step-4.webp", title: "Einbauteile setzen & befüllen", text: "Skimmer, Düsen, Scheinwerfer und weitere Einbauteile werden montiert – anschließend werden die Steine mit Beton befüllt." },
   { n: "05", img: "/images/aufbau/step-5.jpg", title: "Treppenbau", text: "Eine vernünftige und formschöne Treppe darf natürlich nicht fehlen." },
   { n: "06", img: "/images/kunde/img_23.jpg", title: "Verputzen & vorbereiten", text: "Das fertige Becken wird verputzt, geglättet und sorgfältig für die Folie vorbereitet." },
   { n: "07", img: "/images/aufbau/step-7.jpg", title: "Folie nach Wunsch", text: "Zum Schluss wird das Becken mit der Wunschfolie ausgekleidet und verschweißt – ganz nach Kundenwunsch." },
@@ -94,7 +101,7 @@ function AufbauPage() {
     <div ref={rootRef}>
       {/* HERO */}
       <section className="hero-section relative -mt-18 min-h-[68vh] flex items-center justify-center overflow-hidden">
-        <img src="/images/aufbau/step-4.png" alt="" className="hero-bg absolute inset-0 w-full h-[120%] object-cover" />
+        <img src="/images/aufbau/step-4.webp" alt="" className="hero-bg absolute inset-0 w-full h-[120%] object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/45 to-black/75" />
         <div className="relative text-center text-white px-6 pt-32 pb-20 max-w-3xl">
           <div className="hero-reveal inline-flex items-center gap-2 rounded-full bg-white/20 px-3 py-1 text-xs font-semibold uppercase tracking-wider mb-5">
@@ -134,7 +141,7 @@ function AufbauPage() {
           </div>
           <div className="mat-reveal">
             <div className="relative overflow-hidden rounded-2xl shadow-elegant aspect-[3/2]">
-              <img src="/images/aufbau/produkt-1.png" alt="Styroporstein für den Poolbau" className="w-full h-full object-cover" />
+              <img src="/images/aufbau/produkt-1.webp" alt="Styroporstein für den Poolbau" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
@@ -143,7 +150,7 @@ function AufbauPage() {
         <div className="container-page mt-12 mat-reveal">
           <div className="rounded-2xl border border-border bg-white p-2 sm:p-4 md:p-8 shadow-card">
             <div className="overflow-x-auto md:overflow-visible">
-              <img src="/images/aufbau/produkt-2.png" alt="Styroporstein Infografik – technische Details" className="h-auto object-contain min-w-[680px] md:min-w-0 w-full max-h-none md:max-h-[520px] mx-auto" />
+              <img src="/images/aufbau/produkt-2.webp" alt="Styroporstein Infografik – technische Details" className="h-auto object-contain min-w-[680px] md:min-w-0 w-full max-h-none md:max-h-[520px] mx-auto" />
             </div>
             <p className="md:hidden mt-3 text-center text-xs text-muted-foreground">‹ Zum Vergrößern seitlich wischen ›</p>
           </div>

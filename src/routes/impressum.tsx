@@ -1,9 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
-import { COMPANY } from "@/lib/site";
+import { COMPANY, SITE_URL } from "@/lib/site";
 
 export const Route = createFileRoute("/impressum")({
-  head: () => ({ meta: [{ title: "Impressum – FuchsPools" }] }),
+  head: () => ({
+    meta: [
+      { title: "Impressum – Fuchs Pools" },
+      {
+        name: "description",
+        content: "Impressum der Fuchs Pools GmbH aus Reisbach – Anbieterkennzeichnung nach § 5 DDG.",
+      },
+      { property: "og:url", content: SITE_URL + "/impressum" },
+    ],
+    links: [{ rel: "canonical", href: SITE_URL + "/impressum" }],
+  }),
   component: () => (
     <>
       <PageHero title="Impressum" crumbs={[{ label: "Impressum" }]} />
@@ -14,7 +24,7 @@ export const Route = createFileRoute("/impressum")({
         </div>
         <div>
           <h2 className="text-xl font-bold">Vertreten durch</h2>
-          <p className="mt-2">Geschäftsführer: {COMPANY.owner}<br />Berufsbezeichnung: Poolbauer (Deutschland)</p>
+          <p className="mt-2">Geschäftsführer: {COMPANY.owner}</p>
         </div>
         <div>
           <h2 className="text-xl font-bold">Registereintrag</h2>
@@ -30,7 +40,7 @@ export const Route = createFileRoute("/impressum")({
         </div>
         <div>
           <h2 className="text-xl font-bold">Aufsichtsbehörde</h2>
-          <p className="mt-2">Bayerisches Landesamt für Datenschutzaufsicht (BayLDA)<br />Postfach 1349, 91504 Ansbach<br /><a href="https://www.lda.bayern.de" className="text-primary hover:underline" target="_blank" rel="noreferrer">www.lda.bayern.de</a></p>
+          <p className="mt-2">Bayerisches Landesamt für Datenschutzaufsicht (BayLDA)<br />Promenade 27, 91522 Ansbach<br /><a href="https://www.lda.bayern.de" className="text-primary hover:underline" target="_blank" rel="noreferrer">www.lda.bayern.de</a></p>
         </div>
         <div>
           <h2 className="text-xl font-bold">EU-Streitschlichtung</h2>

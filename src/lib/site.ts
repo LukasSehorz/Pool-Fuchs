@@ -1,8 +1,19 @@
 export type NavChild = { label: string; to: string; children?: NavChild[] };
 
+/** Kanonische Basis-URL der Live-Seite (Primary Domain in Netlify).
+ *  Zentrale Quelle für Canonical-Tags, Sitemap, Open Graph und JSON-LD.
+ *  fuchspools.com (ohne www) ist die aktuell von Google indexierte
+ *  Hauptdomain (WordPress-Altseite). fuchspools.de leitet darauf weiter.
+ *  Diese eine Konstante ändern, falls die Primary Domain wechselt
+ *  (+ Primary Domain in Netlify entsprechend setzen). */
+export const SITE_URL = "https://fuchspools.com";
+
+/** Geo-Koordinaten des Standorts (identisch zum Karten-Marker auf /kontakt). */
+export const GEO = { lat: 48.5662, lng: 12.6293 };
+
 export const COMPANY = {
-  name: "FuchsPools",
-  full: "FuchsPools GmbH",
+  name: "Fuchs Pools",
+  full: "Fuchs Pools GmbH",
   street: "Krankenhausstraße 33",
   zip: "94419",
   city: "Reisbach-Niederreisbach",
@@ -14,7 +25,6 @@ export const COMPANY = {
   vatId: "DE343137726",
   registerCourt: "Amtsgericht Landshut",
   registerNumber: "HRB 12625",
-  youtube: "https://www.youtube.com/",
   hours: [
     { d: "Mo – Fr", h: "Nach Vereinbarung" },
     { d: "Sa", h: "Nach Vereinbarung" },

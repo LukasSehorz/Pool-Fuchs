@@ -11,7 +11,7 @@ export function Footer() {
             <Link to="/">
               <img
                 src="/images/logo-fuchspools.png"
-                alt="FuchsPools"
+                alt="Fuchs Pools"
                 className="h-16 w-auto"
               />
             </Link>

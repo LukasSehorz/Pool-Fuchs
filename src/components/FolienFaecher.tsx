@@ -74,8 +74,8 @@ export function FolienFaecher() {
             <div className="border-l-2 pl-6" style={{ borderColor: ORANGE }}>
               <h3 className="text-xl font-bold" style={{ fontFamily: PLAYFAIR }}>Alkorplan Touch</h3>
               <p className="mt-2.5 text-base leading-relaxed text-muted-foreground">
-                „Die mit Abstand beste Poolfolie auf dem Markt" – mit einer Stärke von{" "}
-                <span className="font-semibold text-foreground">2&nbsp;mm</span> fast unzerstörbar und im Design
+                „Eine der hochwertigsten Poolfolien am Markt" – mit einer Stärke von{" "}
+                <span className="font-semibold text-foreground">2&nbsp;mm</span> besonders widerstandsfähig und im Design
                 einer Steinoptik der Natur nachempfunden.
               </p>
             </div>

@@ -10,3 +10,28 @@
 
 [build.environment]
   NODE_VERSION = "22"
+
+# 301-Weiterleitungen der alten WordPress-URLs (SEO-Erhalt beim Umzug von IONOS)
+[[redirects]]
+  from = "/unsere-pools"
+  to = "/poolabdeckungen"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/daecher-2"
+  to = "/daecher"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/hello-world"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/category/uncategorized"
+  to = "/"
+  status = 301
+  force = true

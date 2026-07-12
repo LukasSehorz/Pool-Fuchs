@@ -1,19 +1,24 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
-import { COMPANY } from "@/lib/site";
+import { COMPANY, SITE_URL } from "@/lib/site";
 
 export const Route = createFileRoute("/datenschutz")({
-  head: () => ({ meta: [{ title: "Datenschutz – FuchsPools" }] }),
+  head: () => ({
+    meta: [
+      { title: "Datenschutz – Fuchs Pools" },
+      {
+        name: "description",
+        content:
+          "Datenschutzerklärung der Fuchs Pools GmbH – Informationen zur Verarbeitung Ihrer Daten nach DSGVO.",
+      },
+      { property: "og:url", content: SITE_URL + "/datenschutz" },
+    ],
+    links: [{ rel: "canonical", href: SITE_URL + "/datenschutz" }],
+  }),
   component: () => (
     <>
       <PageHero title="Datenschutzerklärung" crumbs={[{ label: "Datenschutz" }]} />
       <section className="container-page py-16 max-w-3xl text-foreground/85 leading-relaxed space-y-6">
-        <p className="text-sm text-muted-foreground italic">
-          Hinweis: Bei diesem Text handelt es sich um eine allgemeine Muster-/Vorlage. Sie sollte vor dem
-          Live-Gang von einer fachkundigen Stelle (Rechtsanwalt oder Datenschutzbeauftragter) geprüft und an
-          die tatsächlichen Verarbeitungsvorgänge angepasst werden.
-        </p>
-
         <p>
           Der Schutz Ihrer personenbezogenen Daten ist uns ein wichtiges Anliegen. Wir verarbeiten Ihre Daten
           ausschließlich auf Grundlage der gesetzlichen Bestimmungen der Datenschutz-Grundverordnung (DSGVO)
@@ -54,6 +59,18 @@ export const Route = createFileRoute("/datenschutz")({
             Zugriffs, die angeforderte Datei sowie Informationen zum verwendeten Browser und Betriebssystem.
             Diese Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes
             Interesse liegt in der sicheren, stabilen und funktionsfähigen Bereitstellung unserer Website.
+          </p>
+          <p className="mt-2">
+            Diese Website wird bei der Netlify Inc. (512 2nd Street, Suite 200, San Francisco, CA 94107, USA)
+            gehostet. Netlify verarbeitet die anfallenden Server-Logdaten (u.&nbsp;a. Ihre IP-Adresse) als
+            Auftragsverarbeiter in unserem Auftrag. Grundlage hierfür ist ein Auftragsverarbeitungsvertrag nach
+            Art. 28 DSGVO. Da es sich bei Netlify um einen US-amerikanischen Anbieter handelt, kann dabei eine
+            Übermittlung personenbezogener Daten in die USA und damit in ein Drittland erfolgen. Diese
+            Übermittlung wird über die von der EU-Kommission erlassenen Standardvertragsklauseln (Art. 46
+            DSGVO) und – soweit Netlify entsprechend zertifiziert ist – über das EU-US Data Privacy Framework
+            abgesichert. Rechtsgrundlage für den Einsatz des Hosting-Anbieters ist Art. 6 Abs. 1 lit. f DSGVO;
+            unser berechtigtes Interesse besteht in einer sicheren und performanten Bereitstellung unserer
+            Website.
           </p>
         </div>
 
@@ -117,7 +134,7 @@ export const Route = createFileRoute("/datenschutz")({
             Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung Ihrer
             personenbezogenen Daten zu beschweren. Die für uns zuständige Aufsichtsbehörde ist:<br />
             Bayerisches Landesamt für Datenschutzaufsicht (BayLDA)<br />
-            Promenade 18<br />
+            Promenade 27<br />
             91522 Ansbach
           </p>
         </div>

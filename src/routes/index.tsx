@@ -4,9 +4,10 @@ import { Layers, Waves, ArrowRight, Palette, Wrench, Blocks, Settings, Sparkles,
 import { CTASection } from "@/components/CTASection";
 import { TrustBar } from "@/components/TrustBar";
 import { useReveal } from "@/lib/useReveal";
-import leistungenBg from "@/assets/leistungen-bg.png";
+import { SITE_URL } from "@/lib/site";
+import leistungenBg from "@/assets/leistungen-bg.webp";
 
-// Echte FuchsPools-Kundenfotos (public/images/kunde)
+// Echte Fuchs Pools-Kundenfotos (public/images/kunde)
 const aboutPool = "/images/kunde/img_03.jpg"; // Pool mit Holzterrasse am Haus
 const ref9 = "/images/kunde/img_04.jpg";
 const ref10 = "/images/kunde/img_17.jpg";
@@ -23,17 +24,34 @@ const highlight2 = "/images/kunde/img_25.jpg"; // Folien & Design
 const highlight3 = "/images/kunde/img_20.jpg"; // Pool-Überdachungen
 const highlight4 = "/images/kunde/img_09.jpg"; // Aufbau & Montage
 
+// Individuelle Alt-Texte für die Referenz-Galerie (Reihenfolge = ref9…ref17)
+const REFERENZ_ALTS = [
+  "Rechteckpool mit Alkorplan-Folie und umlaufender Terrasse",
+  "Gartenpool mit Römertreppe und klarem blauem Wasser",
+  "Pool mit Überdachung im Garten in Niederbayern",
+  "Gemauerter Pool mit sauber verlegtem Randstein",
+  "Schwimmbecken mit Holzterrasse am Einfamilienhaus",
+  "Pool in edler Steinoptik-Folie von Fuchs Pools",
+  "Individuell nach Maß gebauter Pool im Garten",
+  "Großzügiger Gartenpool mit Sonnenliegen",
+  "Fertig montierter Premium-Pool von Fuchs Pools in Niederbayern",
+];
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "FuchsPools – Traum-Pools nach Maß aus Niederbayern" },
-      { name: "description", content: "FuchsPools GmbH aus Reisbach plant, baut und montiert premium Pools ganz nach Ihren Wünschen – Ihr Poolbauer in Niederbayern." },
+      { title: "Fuchs Pools – Traum-Pools nach Maß aus Niederbayern" },
+      { name: "description", content: "Fuchs Pools GmbH aus Reisbach plant, baut und montiert premium Pools ganz nach Ihren Wünschen – Ihr Poolbauer in Niederbayern." },
+      { property: "og:url", content: SITE_URL + "/" },
+    ],
+    links: [
+      { rel: "canonical", href: SITE_URL + "/" },
     ],
   }),
   component: HomePage,
 });
 
-// Unser Leistungsversprechen – eigene Aussagen von FuchsPools, KEINE Kundenbewertungen.
+// Unser Leistungsversprechen – eigene Aussagen von Fuchs Pools, KEINE Kundenbewertungen.
 // (Echte, verifizierbare Kundenbewertungen können hier später ergänzt werden.)
 const REVIEWS = [
   {
@@ -74,7 +92,7 @@ function HomePage() {
       {/* HERO */}
       <section className="relative isolate overflow-hidden -mt-18 min-h-screen flex items-center justify-center">
         <div className="absolute inset-0 -z-10">
-          <img src="/images/kunde/img_18.jpg" alt="" width={2560} height={1920} className="size-full object-cover" />
+          <img src="/images/kunde/img_18.jpg" alt="" width={2560} height={1920} fetchPriority="high" className="size-full object-cover" />
           <div className="absolute inset-0 bg-black/55" />
         </div>
         <div data-hero className="flex flex-col items-center text-center px-6 pt-36 sm:pt-48 pb-24 text-white">
@@ -84,6 +102,7 @@ function HomePage() {
             style={{ fontFamily: "'Playfair Display', serif", textShadow: "0 2px 12px rgba(0,0,0,0.8), 0 1px 4px rgba(0,0,0,0.6)", textTransform: "none" }}
           >
             TRAUM-POOLS<br />NACH MAß
+            <span className="block mt-3 text-xl md:text-3xl lg:text-4xl font-medium tracking-[0.2em]">IN NIEDERBAYERN</span>
           </h1>
           <p
             data-hero-item
@@ -123,7 +142,7 @@ function HomePage() {
             className="text-2xl md:text-3xl lg:text-[1.9rem] font-bold leading-tight text-foreground"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
-            FuchsPools aus Reisbach baut Ihren Traum-Pool
+            Fuchs Pools aus Reisbach baut Ihren Traum-Pool
           </h2>
           <div className="mt-8 border-l-2 pl-6 space-y-3 leading-relaxed" style={{ fontFamily: "'Playfair Display', serif", borderColor: "#16B5C0" }}>
             <p className="text-base text-muted-foreground">
@@ -142,7 +161,7 @@ function HomePage() {
         <div data-reveal="right" className="relative min-h-[520px]" style={{ backgroundColor: "#16B5C0" }}>
           <div className="absolute inset-8 border border-white/50 pointer-events-none z-10" />
           <div className="absolute inset-x-4 top-10 bottom-10 lg:inset-x-auto lg:-left-10 lg:right-10 shadow-2xl overflow-hidden">
-            <img src={aboutPool} alt="FuchsPools Pool" className="w-full h-full object-cover" />
+            <img src={aboutPool} alt="Rechteckpool mit Holzterrasse direkt am Haus in Niederbayern" loading="lazy" className="w-full h-full object-cover" />
           </div>
         </div>
       </section>
@@ -160,7 +179,7 @@ function HomePage() {
             className="text-center text-4xl md:text-5xl font-bold mb-16 text-foreground"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
-            FuchsPools Leistungen
+            Fuchs Pools Leistungen
           </h2>
           <div data-reveal-group className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-12">
             {LEISTUNGEN.map((item) => (
@@ -200,7 +219,7 @@ function HomePage() {
             <Link to="/poolabdeckungen" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">Mehr erfahren <ArrowRight className="size-3.5" /></Link>
           </div>
           <div data-reveal-item className="min-h-[240px] sm:min-h-[480px] overflow-hidden">
-            <img src={highlight1} alt="" className="w-full h-full object-cover" />
+            <img src={highlight1} alt="Individuell geplanter Pool nach Maß von Fuchs Pools in Niederbayern" loading="lazy" className="w-full h-full object-cover" />
           </div>
           <div data-reveal-item className="bg-[#f5f5f3] flex flex-col items-center justify-center px-8 py-16 min-h-[300px] sm:min-h-[480px]">
             <Palette className="size-16 mb-6" strokeWidth={1} style={{ color: "#16B5C0" }} />
@@ -209,7 +228,7 @@ function HomePage() {
             <Link to="/folien-farben-design" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">Mehr erfahren <ArrowRight className="size-3.5" /></Link>
           </div>
           <div data-reveal-item className="min-h-[240px] sm:min-h-[480px] overflow-hidden">
-            <img src={highlight2} alt="" className="w-full h-full object-cover" />
+            <img src={highlight2} alt="Pool mit hochwertiger Alkorplan-Folie in edler Steinoptik" loading="lazy" className="w-full h-full object-cover" />
           </div>
           {/* Zeile 2 */}
           <div data-reveal-item className="bg-[#f5f5f3] flex flex-col items-center justify-center px-8 py-16 min-h-[300px] sm:min-h-[480px]">
@@ -219,7 +238,7 @@ function HomePage() {
             <Link to="/daecher" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">Mehr erfahren <ArrowRight className="size-3.5" /></Link>
           </div>
           <div data-reveal-item className="min-h-[240px] sm:min-h-[480px] overflow-hidden">
-            <img src={highlight3} alt="" className="w-full h-full object-cover" />
+            <img src={highlight3} alt="Pool mit Überdachung im Garten für eine längere Badesaison" loading="lazy" className="w-full h-full object-cover" />
           </div>
           <div data-reveal-item className="bg-[#f5f5f3] flex flex-col items-center justify-center px-8 py-16 min-h-[300px] sm:min-h-[480px]">
             <Wrench className="size-16 mb-6" strokeWidth={1} style={{ color: "#16B5C0" }} />
@@ -228,7 +247,7 @@ function HomePage() {
             <Link to="/aufbau-unserer-pools" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">Mehr erfahren <ArrowRight className="size-3.5" /></Link>
           </div>
           <div data-reveal-item className="min-h-[240px] sm:min-h-[480px] overflow-hidden">
-            <img src={highlight4} alt="" className="w-full h-full object-cover" />
+            <img src={highlight4} alt="Aufbau und Montage eines Pools durch das Fuchs Pools-Team" loading="lazy" className="w-full h-full object-cover" />
           </div>
         </div>
       </section>
@@ -240,7 +259,7 @@ function HomePage() {
           <div data-reveal="left" className="grid grid-cols-2 gap-3 md:gap-4">
             {["/images/gfk/gfk-2.jpg", "/images/gfk/gfk-4.jpg", "/images/gfk/gfk-1.jpg", "/images/gfk/gfk-3.jpg"].map((src, i) => (
               <div key={src} className={`overflow-hidden rounded-2xl shadow-card ${i % 2 === 1 ? "sm:mt-6" : ""}`}>
-                <img src={src} alt="GFK-Becken-Sanierung bei FuchsPools" loading="lazy" className="aspect-[3/4] w-full object-cover" />
+                <img src={src} alt="GFK-Becken-Sanierung bei Fuchs Pools" loading="lazy" className="aspect-[3/4] w-full object-cover" />
               </div>
             ))}
           </div>
@@ -312,7 +331,7 @@ function HomePage() {
           <div data-reveal-group className="grid grid-cols-2 sm:grid-cols-3 gap-3 px-6 sm:px-12 lg:px-28 pb-16">
             {[ref9, ref10, ref11, ref12, ref13, ref14, ref15, ref16, ref17].map((src, i) => (
               <div key={i} data-reveal-item className="aspect-[4/3] overflow-hidden group">
-                <img src={src} alt="" loading="lazy" className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" />
+                <img src={src} alt={REFERENZ_ALTS[i] ?? `Referenz-Pool ${i + 1} von Fuchs Pools in Niederbayern`} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" />
               </div>
             ))}
           </div>
@@ -383,7 +402,7 @@ function HomePage() {
       <section className="grid lg:grid-cols-2 overflow-hidden">
         {/* Bild – randlos links */}
         <div data-reveal="left" className="relative min-h-[600px]">
-          <img src={bild19} alt="FuchsPools – Ihr Poolspezialist" className="absolute inset-0 w-full h-full object-cover" />
+          <img src={bild19} alt="Pool mit Sonnenliegen im Garten – Referenz von Fuchs Pools in Niederbayern" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
         </div>
 
         {/* Text rechts */}
@@ -395,7 +414,7 @@ function HomePage() {
             Über uns
           </h2>
           <p className="text-base text-muted-foreground leading-relaxed mb-10">
-            Seit mehreren Jahren sind wir Ihr zuverlässiger Ansprechpartner rund um den Pool in Niederbayern. Von der individuellen Beratung über die Planung bis zur fachgerechten Montage – bei FuchsPools erhalten Sie alles aus einer Hand. Unser Team berät Sie persönlich und findet für jeden Pool die optimale Lösung.
+            Seit mehreren Jahren sind wir Ihr zuverlässiger Ansprechpartner rund um den Pool in Niederbayern. Von der individuellen Beratung über die Planung bis zur fachgerechten Montage – bei Fuchs Pools erhalten Sie alles aus einer Hand. Unser Team berät Sie persönlich und findet für jeden Pool die optimale Lösung.
           </p>
 
           {/* Callout mit linkem Balken */}
@@ -414,6 +433,59 @@ function HomePage() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* EINZUGSGEBIET */}
+      <section className="bg-white py-20 md:py-28 overflow-hidden">
+        <div className="container-page">
+          <div data-reveal className="max-w-3xl">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-widest" style={{ color: "#16B5C0" }}>
+              Einzugsgebiet
+            </p>
+            <h2
+              className="text-3xl md:text-4xl font-bold leading-tight text-foreground"
+              style={{ fontFamily: "'Playfair Display', serif" }}
+            >
+              Ihr Poolbauer im Landkreis Dingolfing-Landau &amp; Umgebung
+            </h2>
+            <p className="mt-6 text-base leading-relaxed text-muted-foreground">
+              Von unserem Standort in Reisbach aus planen und bauen wir Pools in ganz Niederbayern.
+              Ob Neubau, Folie, Überdachung oder Sanierung – wir kommen gerne zu Ihnen. Regelmäßig
+              sind wir unter anderem in diesen Orten und der jeweiligen Umgebung für unsere Kundinnen
+              und Kunden im Einsatz:
+            </p>
+          </div>
+
+          <ul data-reveal data-reveal-delay="0.1" className="mt-8 flex flex-wrap gap-3">
+            {[
+              "Reisbach",
+              "Dingolfing",
+              "Landau an der Isar",
+              "Landshut",
+              "Vilsbiburg",
+              "Eggenfelden",
+              "Frontenhausen",
+              "Pilsting",
+              "Mamming",
+            ].map((ort) => (
+              <li
+                key={ort}
+                className="rounded-full border px-4 py-2 text-sm font-medium text-foreground"
+                style={{ borderColor: "#16B5C0" }}
+              >
+                {ort}
+              </li>
+            ))}
+          </ul>
+
+          <p className="mt-6 text-sm text-muted-foreground">
+            Ihr Ort ist nicht dabei?{" "}
+            <Link to="/kontakt" className="font-semibold text-primary hover:underline">
+              Sprechen Sie uns an
+            </Link>{" "}
+            – wir prüfen gerne, ob wir auch Ihr Projekt umsetzen können.
+          </p>
         </div>
       </section>
 

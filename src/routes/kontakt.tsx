@@ -1,25 +1,50 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useRef, useState } from "react";
-import { Phone, Mail, MapPin, Clock, Check } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Check, AlertTriangle } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { useReveal } from "@/lib/useReveal";
-import { COMPANY } from "@/lib/site";
+import { COMPANY, SITE_URL } from "@/lib/site";
+import { sendContactMessage } from "@/lib/api/contact.functions";
 
 export const Route = createFileRoute("/kontakt")({
   head: () => ({
     meta: [
-      { title: "Kontakt – FuchsPools Reisbach" },
+      { title: "Kontakt – Fuchs Pools Reisbach" },
       { name: "description", content: "Schreiben Sie uns oder rufen Sie an. Persönliche Beratung rund um Ihren Traum-Pool in Niederbayern." },
+      { property: "og:url", content: SITE_URL + "/kontakt" },
     ],
+    links: [{ rel: "canonical", href: SITE_URL + "/kontakt" }],
   }),
   component: KontaktPage,
 });
 
+type ContactStatus = "idle" | "sending" | "sent" | "error";
+
 function KontaktPage() {
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<ContactStatus>("idle");
   const [mapConsent, setMapConsent] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   useReveal(rootRef);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const fd = new FormData(e.currentTarget);
+    setStatus("sending");
+    try {
+      await sendContactMessage({
+        data: {
+          name: String(fd.get("name") ?? "").trim(),
+          email: String(fd.get("email") ?? "").trim(),
+          phone: String(fd.get("phone") ?? "").trim() || undefined,
+          message: String(fd.get("message") ?? "").trim(),
+        },
+      });
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+    }
+  }
+
   return (
     <div ref={rootRef}>
       <PageHero
@@ -36,12 +61,12 @@ function KontaktPage() {
         <form
           data-reveal="left"
           className="rounded-3xl border border-border bg-card p-8 shadow-card"
-          onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+          onSubmit={handleSubmit}
         >
           <h2 className="text-2xl font-bold">Kostenloses Angebot anfordern</h2>
           <p className="mt-2 text-sm text-muted-foreground">Antwort in der Regel innerhalb von 24 Stunden.</p>
 
-          {sent ? (
+          {status === "sent" ? (
             <div className="mt-6 rounded-2xl bg-primary/10 border border-primary/30 p-6 text-foreground">
               <div className="flex items-center gap-2 font-semibold text-primary"><Check className="size-5" /> Vielen Dank!</div>
               <p className="mt-2 text-sm">Wir melden uns schnellstmöglich bei Ihnen.</p>
@@ -52,15 +77,33 @@ function KontaktPage() {
               <Field label="E-Mail" name="email" type="email" required />
               <Field label="Telefon" name="phone" type="tel" />
               <div>
-                <label className="text-sm font-medium">Ihre Nachricht *</label>
-                <textarea required rows={5} className="mt-1.5 w-full rounded-xl border border-input bg-background px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-ring" />
+                <label htmlFor="message" className="text-sm font-medium">Ihre Nachricht *</label>
+                <textarea id="message" name="message" required rows={5} className="mt-1.5 w-full rounded-xl border border-input bg-background px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-ring" />
               </div>
               <label className="flex items-start gap-2 text-xs text-muted-foreground">
                 <input type="checkbox" required className="mt-0.5" />
                 <span>Ich habe die <Link to="/datenschutz" className="text-primary hover:underline">Datenschutzerklärung</Link> gelesen und stimme der Verarbeitung meiner Angaben zur Kontaktaufnahme zu.</span>
               </label>
-              <button className="rounded-full gradient-water text-primary-foreground py-3.5 font-semibold shadow-card hover:opacity-95 transition">
-                Anfrage absenden
+
+              {status === "error" && (
+                <div className="rounded-2xl border border-destructive/40 bg-destructive/10 p-5 text-sm text-foreground">
+                  <div className="flex items-center gap-2 font-semibold text-destructive"><AlertTriangle className="size-5" /> Senden nicht möglich</div>
+                  <p className="mt-2">
+                    Das Formular konnte gerade nicht gesendet werden. Bitte kontaktieren Sie uns direkt:
+                  </p>
+                  <p className="mt-3 flex flex-col gap-1.5">
+                    <a href={COMPANY.phoneHref} className="inline-flex items-center gap-2 font-medium text-primary hover:underline"><Phone className="size-4" /> {COMPANY.phone}</a>
+                    <a href={`mailto:${COMPANY.email}`} className="inline-flex items-center gap-2 font-medium text-primary hover:underline"><Mail className="size-4" /> {COMPANY.email}</a>
+                  </p>
+                </div>
+              )}
+
+              <button
+                type="submit"
+                disabled={status === "sending"}
+                className="rounded-full gradient-water text-primary-foreground py-3.5 font-semibold shadow-card hover:opacity-95 transition disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                {status === "sending" ? "Wird gesendet…" : "Anfrage absenden"}
               </button>
             </div>
           )}
