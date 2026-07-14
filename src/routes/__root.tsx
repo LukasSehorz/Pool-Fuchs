@@ -178,6 +178,7 @@ function RootShell({ children }: { children: ReactNode }) {
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { MobileCTA } from "../components/MobileCTA";
+import { CookieConsent } from "../components/CookieConsent";
 
 /** Bei jedem Seiten-/Pfadwechsel ganz nach oben (Hero-Start) springen – Desktop & Mobile.
  *  Ignoriert reine Hash-/In-Page-Anker (#angebot) und scrollt sofort (ohne Smooth-Animation). */
@@ -206,6 +207,7 @@ function RootComponent() {
         </main>
         <Footer />
         <MobileCTA />
+        <CookieConsent />
       </div>
     </QueryClientProvider>
   );

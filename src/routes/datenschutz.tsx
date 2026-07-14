@@ -88,16 +88,48 @@ export const Route = createFileRoute("/datenschutz")({
         </div>
 
         <div>
-          <h2 className="text-xl font-bold">5. Cookies</h2>
+          <h2 className="text-xl font-bold">5. Cookies und Einwilligung</h2>
           <p className="mt-2">
-            Diese Website setzt ausschließlich technisch notwendige Cookies ein, die für den ordnungsgemäßen
-            Betrieb der Seite erforderlich sind. Es werden keine Tracking- oder Analyse-Cookies verwendet und es
-            findet keine personenbezogene Auswertung Ihres Nutzungsverhaltens statt.
+            Für den technischen Betrieb dieser Website setzen wir Cookies ein, die für die grundlegende
+            Funktion und Sicherheit erforderlich sind (technisch notwendige Cookies). Diese werden auf Grundlage
+            von Art. 6 Abs. 1 lit. f DSGVO gesetzt und bedürfen keiner Einwilligung.
+          </p>
+          <p className="mt-2">
+            Darüber hinaus setzen wir – ausschließlich mit Ihrer vorherigen Einwilligung – Cookies und
+            vergleichbare Technologien für Statistik- und Marketingzwecke ein (siehe Ziffer 6). Beim ersten
+            Besuch unserer Website erhalten Sie hierzu einen Cookie-Hinweis (Consent-Banner), über den Sie frei
+            entscheiden können, ob Sie diese Verarbeitung zulassen oder ablehnen. Ohne Ihre Einwilligung werden
+            keine Statistik- oder Marketing-Cookies gesetzt und keine entsprechenden Dienste geladen.
+            Rechtsgrundlage ist Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO sowie § 25 Abs. 1 TDDDG. Ihre
+            Einwilligung ist freiwillig und kann jederzeit mit Wirkung für die Zukunft widerrufen werden – über
+            den Link „Cookie-Einstellungen“ im Fußbereich (Footer) unserer Website.
           </p>
         </div>
 
         <div>
-          <h2 className="text-xl font-bold">6. Schriftarten</h2>
+          <h2 className="text-xl font-bold">6. Google Tag Manager, Google-Dienste und Werbung</h2>
+          <p className="mt-2">
+            Nach Ihrer Einwilligung setzen wir den Google Tag Manager ein, einen Dienst der Google Ireland
+            Limited (Gordon House, Barrow Street, Dublin 4, Irland). Der Google Tag Manager dient dazu, weitere
+            Dienste und sogenannte Tags – etwa zur Reichweitenmessung/Statistik sowie zu Marketing- und
+            Werbezwecken (z.&nbsp;B. Google Ads) – zu verwalten und auf der Website einzubinden. Über diese
+            Dienste können Cookies gesetzt und Nutzungsdaten (u.&nbsp;a. IP-Adresse, Geräte- und
+            Browserinformationen, aufgerufene Seiten) verarbeitet werden.
+          </p>
+          <p className="mt-2">
+            Der Google Tag Manager und die darüber eingebundenen Google-Dienste werden erst geladen, nachdem Sie
+            im Consent-Banner aktiv eingewilligt haben. Rechtsgrundlage ist Ihre Einwilligung gemäß Art. 6 Abs. 1
+            lit. a DSGVO und § 25 Abs. 1 TDDDG. Anbieter ist Google; dabei kann eine Verarbeitung bzw.
+            Übermittlung personenbezogener Daten in die USA (Drittland) erfolgen. Diese wird über die
+            EU-Standardvertragsklauseln (Art. 46 DSGVO) sowie – soweit Google entsprechend zertifiziert ist –
+            über das EU-US Data Privacy Framework abgesichert. Sie können Ihre Einwilligung jederzeit über die
+            „Cookie-Einstellungen“ im Footer mit Wirkung für die Zukunft widerrufen. Weitere Informationen zur
+            Datenverarbeitung durch Google finden Sie unter https://policies.google.com/privacy.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-xl font-bold">7. Schriftarten</h2>
           <p className="mt-2">
             Die auf dieser Website verwendeten Schriftarten werden lokal von unserem eigenen Server ausgeliefert
             (self-hosted). Es besteht dabei keine Verbindung zu Servern von Google oder anderen Dritten, und es
@@ -106,7 +138,7 @@ export const Route = createFileRoute("/datenschutz")({
         </div>
 
         <div>
-          <h2 className="text-xl font-bold">7. Kartendienst (OpenStreetMap)</h2>
+          <h2 className="text-xl font-bold">8. Kartendienst (OpenStreetMap)</h2>
           <p className="mt-2">
             Auf unserer Kontaktseite binden wir eine Karte des Dienstes OpenStreetMap ein. Die Karte wird erst
             nach Ihrer ausdrücklichen Einwilligung, also durch aktives Anklicken, geladen. Bei diesem Vorgang
@@ -117,7 +149,7 @@ export const Route = createFileRoute("/datenschutz")({
         </div>
 
         <div>
-          <h2 className="text-xl font-bold">8. Ihre Rechte als betroffene Person</h2>
+          <h2 className="text-xl font-bold">9. Ihre Rechte als betroffene Person</h2>
           <p className="mt-2">
             Ihnen stehen nach der DSGVO folgende Rechte zu: das Recht auf Auskunft (Art. 15 DSGVO), auf
             Berichtigung (Art. 16 DSGVO), auf Löschung (Art. 17 DSGVO), auf Einschränkung der Verarbeitung
@@ -129,7 +161,7 @@ export const Route = createFileRoute("/datenschutz")({
         </div>
 
         <div>
-          <h2 className="text-xl font-bold">9. Beschwerderecht bei der Aufsichtsbehörde</h2>
+          <h2 className="text-xl font-bold">10. Beschwerderecht bei der Aufsichtsbehörde</h2>
           <p className="mt-2">
             Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung Ihrer
             personenbezogenen Daten zu beschweren. Die für uns zuständige Aufsichtsbehörde ist:<br />
@@ -140,7 +172,7 @@ export const Route = createFileRoute("/datenschutz")({
         </div>
 
         <div>
-          <h2 className="text-xl font-bold">10. Speicherdauer</h2>
+          <h2 className="text-xl font-bold">11. Speicherdauer</h2>
           <p className="mt-2">
             Wir speichern personenbezogene Daten grundsätzlich nur so lange, wie es für die Erreichung des
             jeweiligen Verarbeitungszwecks erforderlich ist. Darüber hinaus können sich längere Speicherfristen
@@ -150,7 +182,7 @@ export const Route = createFileRoute("/datenschutz")({
         </div>
 
         <div>
-          <h2 className="text-xl font-bold">11. SSL-/TLS-Verschlüsselung</h2>
+          <h2 className="text-xl font-bold">12. SSL-/TLS-Verschlüsselung</h2>
           <p className="mt-2">
             Diese Website nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte eine
             SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die

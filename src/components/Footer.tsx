@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Phone, MapPin, Mail } from "lucide-react";
 import { COMPANY, NAV } from "@/lib/site";
+import { openCookieSettings } from "@/components/CookieConsent";
 
 export function Footer() {
   return (
@@ -43,6 +44,7 @@ export function Footer() {
             <Link to="/impressum" className="hover:text-primary">Impressum</Link>
             <Link to="/datenschutz" className="hover:text-primary">Datenschutz</Link>
             <Link to="/kontakt" className="hover:text-primary">Kontakt</Link>
+            <button type="button" onClick={openCookieSettings} className="hover:text-primary">Cookie-Einstellungen</button>
           </div>
         </div>
       </div>
