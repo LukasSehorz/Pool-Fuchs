@@ -47,6 +47,10 @@ export function Footer() {
             <button type="button" onClick={openCookieSettings} className="hover:text-primary">Cookie-Einstellungen</button>
           </div>
         </div>
+
+        <p className="mt-4 text-xs text-primary-foreground/60">
+          Teile der Inhalte dieser Website wurden mit Unterstützung von KI erstellt.
+        </p>
       </div>
     </footer>
   );

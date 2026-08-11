@@ -54,6 +54,10 @@ export const Route = createFileRoute("/impressum")({
           <h2 className="text-xl font-bold">Urheberrecht</h2>
           <p className="mt-2">Die durch die Seitenbetreiber erstellten Inhalte und Werke unterliegen dem deutschen Urheberrecht.</p>
         </div>
+        <div>
+          <h2 className="text-xl font-bold">Hinweis zu KI-generierten Inhalten</h2>
+          <p className="mt-2">Teile der Inhalte dieser Website (Texte und Bilder) wurden mit Unterstützung von künstlicher Intelligenz erstellt und redaktionell geprüft.</p>
+        </div>
       </section>
     </>
   ),
