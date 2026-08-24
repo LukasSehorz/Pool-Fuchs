@@ -10,6 +10,12 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+
+# Lokale Secrets (Resend-Key) - gehoeren NICHT ins Repository
+.env
+.env.local
+.env.*.local
+
 .output
 .netlify
 .vinxi
