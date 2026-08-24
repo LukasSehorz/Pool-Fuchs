@@ -4,7 +4,6 @@ import { Phone, Mail, MapPin, Clock, Check, AlertTriangle } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { useReveal } from "@/lib/useReveal";
 import { COMPANY, SITE_URL } from "@/lib/site";
-import { sendContactMessage } from "@/lib/api/contact.functions";
 
 export const Route = createFileRoute("/kontakt")({
   head: () => ({
@@ -22,6 +21,7 @@ type ContactStatus = "idle" | "sending" | "sent" | "error";
 
 function KontaktPage() {
   const [status, setStatus] = useState<ContactStatus>("idle");
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [mapConsent, setMapConsent] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   useReveal(rootRef);
@@ -30,16 +30,29 @@ function KontaktPage() {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
     setStatus("sending");
+    setErrorMsg(null);
     try {
-      await sendContactMessage({
-        data: {
+      const res = await fetch("/api/anfrage", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
           name: String(fd.get("name") ?? "").trim(),
           email: String(fd.get("email") ?? "").trim(),
-          phone: String(fd.get("phone") ?? "").trim() || undefined,
+          phone: String(fd.get("phone") ?? "").trim(),
           message: String(fd.get("message") ?? "").trim(),
-        },
+          company: String(fd.get("company") ?? ""), // Honeypot
+        }),
       });
-      setStatus("sent");
+      const data = (await res.json().catch(() => ({ ok: false }))) as {
+        ok?: boolean;
+        error?: string;
+      };
+      if (res.ok && data.ok) {
+        setStatus("sent");
+      } else {
+        setErrorMsg(data.error ?? null);
+        setStatus("error");
+      }
     } catch {
       setStatus("error");
     }
@@ -76,6 +89,13 @@ function KontaktPage() {
               <Field label="Name" name="name" required />
               <Field label="E-Mail" name="email" type="email" required />
               <Field label="Telefon" name="phone" type="tel" />
+
+              {/* Honeypot – für Menschen unsichtbar, Bots füllen es aus. */}
+              <div aria-hidden="true" className="absolute -left-[9999px] size-0 overflow-hidden">
+                <label htmlFor="company">Firma (bitte leer lassen)</label>
+                <input id="company" name="company" type="text" tabIndex={-1} autoComplete="off" />
+              </div>
+
               <div>
                 <label htmlFor="message" className="text-sm font-medium">Ihre Nachricht *</label>
                 <textarea id="message" name="message" required rows={5} className="mt-1.5 w-full rounded-xl border border-input bg-background px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-ring" />
@@ -89,7 +109,7 @@ function KontaktPage() {
                 <div className="rounded-2xl border border-destructive/40 bg-destructive/10 p-5 text-sm text-foreground">
                   <div className="flex items-center gap-2 font-semibold text-destructive"><AlertTriangle className="size-5" /> Senden nicht möglich</div>
                   <p className="mt-2">
-                    Das Formular konnte gerade nicht gesendet werden. Bitte kontaktieren Sie uns direkt:
+                    {errorMsg ?? "Das Formular konnte gerade nicht gesendet werden."} Bitte kontaktieren Sie uns direkt:
                   </p>
                   <p className="mt-3 flex flex-col gap-1.5">
                     <a href={COMPANY.phoneHref} className="inline-flex items-center gap-2 font-medium text-primary hover:underline"><Phone className="size-4" /> {COMPANY.phone}</a>

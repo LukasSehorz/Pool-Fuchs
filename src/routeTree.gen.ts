@@ -18,6 +18,7 @@ import { Route as DaecherRouteImport } from './routes/daecher'
 import { Route as AufbauUnsererPoolsRouteImport } from './routes/aufbau-unserer-pools'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PoolabdeckungenIndexRouteImport } from './routes/poolabdeckungen.index'
+import { Route as ApiAnfrageRouteImport } from './routes/api.anfrage'
 
 const PoolabdeckungenRoute = PoolabdeckungenRouteImport.update({
   id: '/poolabdeckungen',
@@ -64,6 +65,11 @@ const PoolabdeckungenIndexRoute = PoolabdeckungenIndexRouteImport.update({
   path: '/',
   getParentRoute: () => PoolabdeckungenRoute,
 } as any)
+const ApiAnfrageRoute = ApiAnfrageRouteImport.update({
+  id: '/api/anfrage',
+  path: '/api/anfrage',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -74,6 +80,7 @@ export interface FileRoutesByFullPath {
   '/impressum': typeof ImpressumRoute
   '/kontakt': typeof KontaktRoute
   '/poolabdeckungen': typeof PoolabdeckungenRouteWithChildren
+  '/api/anfrage': typeof ApiAnfrageRoute
   '/poolabdeckungen/': typeof PoolabdeckungenIndexRoute
 }
 export interface FileRoutesByTo {
@@ -84,6 +91,7 @@ export interface FileRoutesByTo {
   '/folien-farben-design': typeof FolienFarbenDesignRoute
   '/impressum': typeof ImpressumRoute
   '/kontakt': typeof KontaktRoute
+  '/api/anfrage': typeof ApiAnfrageRoute
   '/poolabdeckungen': typeof PoolabdeckungenIndexRoute
 }
 export interface FileRoutesById {
@@ -96,6 +104,7 @@ export interface FileRoutesById {
   '/impressum': typeof ImpressumRoute
   '/kontakt': typeof KontaktRoute
   '/poolabdeckungen': typeof PoolabdeckungenRouteWithChildren
+  '/api/anfrage': typeof ApiAnfrageRoute
   '/poolabdeckungen/': typeof PoolabdeckungenIndexRoute
 }
 export interface FileRouteTypes {
@@ -109,6 +118,7 @@ export interface FileRouteTypes {
     | '/impressum'
     | '/kontakt'
     | '/poolabdeckungen'
+    | '/api/anfrage'
     | '/poolabdeckungen/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -119,6 +129,7 @@ export interface FileRouteTypes {
     | '/folien-farben-design'
     | '/impressum'
     | '/kontakt'
+    | '/api/anfrage'
     | '/poolabdeckungen'
   id:
     | '__root__'
@@ -130,6 +141,7 @@ export interface FileRouteTypes {
     | '/impressum'
     | '/kontakt'
     | '/poolabdeckungen'
+    | '/api/anfrage'
     | '/poolabdeckungen/'
   fileRoutesById: FileRoutesById
 }
@@ -142,6 +154,7 @@ export interface RootRouteChildren {
   ImpressumRoute: typeof ImpressumRoute
   KontaktRoute: typeof KontaktRoute
   PoolabdeckungenRoute: typeof PoolabdeckungenRouteWithChildren
+  ApiAnfrageRoute: typeof ApiAnfrageRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -209,6 +222,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PoolabdeckungenIndexRouteImport
       parentRoute: typeof PoolabdeckungenRoute
     }
+    '/api/anfrage': {
+      id: '/api/anfrage'
+      path: '/api/anfrage'
+      fullPath: '/api/anfrage'
+      preLoaderRoute: typeof ApiAnfrageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -233,6 +253,7 @@ const rootRouteChildren: RootRouteChildren = {
   ImpressumRoute: ImpressumRoute,
   KontaktRoute: KontaktRoute,
   PoolabdeckungenRoute: PoolabdeckungenRouteWithChildren,
+  ApiAnfrageRoute: ApiAnfrageRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
