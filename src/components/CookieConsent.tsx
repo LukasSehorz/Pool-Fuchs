@@ -4,8 +4,16 @@ import { Link } from "@tanstack/react-router";
 // Google Tag Manager – wird AUSSCHLIESSLICH nach aktiver Einwilligung geladen
 // (DSGVO Art. 6 Abs. 1 lit. a + § 25 Abs. 1 TDDDG). Vor der Einwilligung findet
 // kein Request an Google statt und es werden keine Marketing-/Statistik-Cookies gesetzt.
-const GTM_ID = "GTM-TBKQDWTS";
-const CONSENT_KEY = "fp-cookie-consent-v1"; // "accepted" | "rejected"
+//
+// Das Nachladen von gtm.js passiert NICHT mehr hier, sondern im serverseitig
+// gerenderten Inline-Script in src/routes/__root.tsx. Grund: Die Google Search
+// Console sucht die Container-ID im ausgelieferten HTML und führt dabei kein
+// JavaScript aus – eine erst zur Laufzeit eingefügte ID sieht sie nie. Dieses
+// Banner meldet die Entscheidung deshalb nur noch per Event an jenes Script.
+// Es darf hier bewusst keinen zweiten Consent-Speicher geben: Schlüssel und
+// Event-Name werden exportiert, damit beide Seiten dieselben Werte benutzen.
+export const CONSENT_KEY = "fp-cookie-consent-v1"; // "accepted" | "rejected"
+export const CONSENT_EVENT = "fp-consent-change";
 
 declare global {
   interface Window {
@@ -14,16 +22,9 @@ declare global {
   }
 }
 
-function loadGTM() {
-  if (typeof window === "undefined" || window.__fpGtmLoaded) return;
-  window.__fpGtmLoaded = true;
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-  const first = document.getElementsByTagName("script")[0];
-  const s = document.createElement("script");
-  s.async = true;
-  s.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`;
-  first?.parentNode?.insertBefore(s, first);
+/** Teilt dem Inline-Script im <head> mit, dass jetzt eingewilligt wurde. */
+function meldeEinwilligung(accepted: boolean) {
+  window.dispatchEvent(new CustomEvent(CONSENT_EVENT, { detail: { accepted } }));
 }
 
 /** Öffnet den Cookie-Hinweis erneut, damit die Einwilligung geändert/widerrufen
@@ -47,8 +48,8 @@ export function CookieConsent() {
     } catch {
       /* ignore */
     }
-    if (choice === "accepted") loadGTM();
-    else if (choice !== "rejected") setVisible(true);
+    // Bei "accepted" hat das Inline-Script im <head> GTM bereits selbst gestartet.
+    if (choice !== "accepted" && choice !== "rejected") setVisible(true);
   }, []);
 
   const decide = (accepted: boolean) => {
@@ -58,7 +59,7 @@ export function CookieConsent() {
       /* ignore */
     }
     setVisible(false);
-    if (accepted) loadGTM();
+    meldeEinwilligung(accepted);
   };
 
   if (!visible) return null;
